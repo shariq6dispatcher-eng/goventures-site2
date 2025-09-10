@@ -4,317 +4,254 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Go Ventures - Ground Freight Services</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       background-color: #121212;
       color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .logo {
-       height: 100px;   /* bigger for visibility */
-       width: 100px;    /* keep aspect ratio */
-       object-fit: contain;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
     }
 
     /* Navbar */
     .navbar-custom {
-      background: rgba(20, 20, 20, 0.85);
+      background: rgba(20, 20, 20, 0.9);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding: 0.8rem 1rem;
     }
-
-    /*.navbar-brand img {
-      max-height: 50px;
-    }*/
-
     .navbar-nav .nav-link {
       color: #e0e0e0 !important;
       font-weight: 500;
       margin: 0 10px;
       transition: color 0.3s ease;
     }
-
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link:focus {
+    .navbar-nav .nav-link:hover {
       color: #00b4d8 !important;
     }
-    
-    .navbar {
-  position: relative;
-  z-index: 1050; /* higher than hero */
+.navbar-brand img {
+  height: 60px;       /* Adjust logo height */
+  width: auto;        /* Keep aspect ratio */
+  object-fit: contain;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Vertically align logo */
+}
+.navbar .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* Navbar transition */
+.navbar-custom {
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
 
-    .dropdown-menu {
-      background: #1f1f1f;
-      border: 1px solid #333;
-      z-index: 2000; /* force it above everything */
-    }
+.navbar-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
 
-    .dropdown-item {
-      color: #e0e0e0;
-    }
-
-    .dropdown-item:hover {
-      background: #00b4d8;
-      color: #fff;
-    }
-
-
+    /* Buttons */
     .btn-login {
       background: #00b4d8;
       color: #fff;
       border: none;
       padding: 6px 18px;
-      border-radius: 20px;
+      border-radius: 30px;
       font-weight: 500;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
     }
-
     .btn-login:hover {
       background: #0096c7;
+      transform: translateY(-2px);
     }
-
     .btn-register {
       border: 1px solid #00b4d8;
-      padding: 6px 16px;
-      border-radius: 20px;
+      padding: 6px 18px;
+      border-radius: 30px;
       margin-right: 10px;
       color: #00b4d8;
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
     }
-
     .btn-register:hover {
       background: #00b4d8;
       color: #fff;
     }
- footer {
-      background: #000;
-    }
-    .footer-desc {
-      color: rgba(255, 255, 255, 0.1);
-      transition: color 0.4s ease;
-    }
-    .col-md-4:hover .footer-desc {
-      color: #ffffff;
-    }
 
+    /* Hero */
     .hero {
-  position: relative;
-  height: 70vh; /* smaller height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #F58700;
-  overflow: hidden;
-}
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background: url('images/bggo.jpg') center/cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+      z-index: 1;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+    .hero h2 {
+      font-size: 1.8rem;
+      margin: 1rem 0;
+    }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* dark overlay */
-  transition: opacity 0.5s ease-in-out;
-  z-index: 1;
-}
-
-.hero:hover::before {
-  opacity: 0; /* remove overlay on hover */
-}
-
-.hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.hero {
-  background: url('images/bggo.jpg') center center/cover no-repeat;
-}
-
-/* Adjust text sizes */
-.hero h1 {
-  font-size: 3.3rem;   /* bigger main title */
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* shadow for clarity */
-}
-
-.hero h2 {
-  font-size: 2.0rem;  /* slightly bigger subtitle */
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #f0f0f0; /* brighter for better visibility */
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
-}
-
-.hero .lead {
-  font-size: 1.3rem;  /* bigger tagline */
-  font-weight: 600;
-  color: #e0e0e0;     /* lighter for visibility */
-  max-width: 750px;   /* keep text centered & neat */
-  margin: 0 auto;
-  line-height: 1.6;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-}
-
+    /* Section */
+    section {
+      padding: 4rem 0;
+    }
 
     /* Cards */
-    section {
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-
     .card {
-      background-color: #2a2a2a;
-      color: #e0e0e0;
-      border: 1px solid #333;
+      background-color: #1e1e1e;
+      border: none;
+      border-radius: 15px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+    .card img {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
     }
 
-    .card .btn {
+    /* Why Choose Us */
+    .icon-card {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .icon-card:hover {
       background: #00b4d8;
-      border: none;
+      color: #fff;
+      transform: translateY(-5px);
+    }
+    .icon-card i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00b4d8;
+    }
+    .icon-card:hover i {
+      color: #fff;
     }
 
-    .card .btn:hover {
-      background: #0096c7;
+    /* Footer */
+    footer {
+      background: #000;
+      padding-top: 3rem;
     }
-
-/* When hovering over the whole column, reveal text */
-.col-md-4:hover .footer-desc {
-  color: #ffffff;
-}
-
-    .top-actions a {
-      color: #e0e0e0; /* match navbar text */
-      text-decoration: none; /* remove underline */
-      font-weight: 500;
+    footer a {
+      color: #ccc;
+      text-decoration: none;
       transition: color 0.3s ease;
     }
-
-    .top-actions a:hover {
-      color: #00b4d8; /* highlight on hover */
+    footer a:hover {
+      color: #00b4d8;
     }
-    .container p{
-       display: inline-block;
-       padding: 15px 25px;
-       background: rgba(0, 0, 0, 0.4);   /* dark transparent background */
-       backdrop-filter: blur(8px);       /* blur behind the text */
-       -webkit-backdrop-filter: blur(8px); /* Safari support */
-       border-radius: 8px;               /* smooth rounded corners */
-       color: #fff;                      /* make sure text stays white */
-       text-align: center;
+.text-gold {
+  color: #f4b000;
 }
-
-
+.btn-gold {
+  color: #f4b000;
+}
   </style>
 </head>
 <body>
- <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
   <div class="container-fluid">
-    <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center fw-bold" href="Home.html">
-      <img src="images/logo.png" alt="Logo" class="logo me-2">
+    <a class="navbar-brand fw-bold" href="#">
+      <img src="images/logo.png" alt="Go Ventures Logo" class="logo-img">
     </a>
-
-    <!-- Toggle button for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <!-- LEFT: Nav links -->
-      <ul class="navbar-nav ms-3">
-        <li class="nav-item">
-          <a class="nav-link toggle" href="Home.html">Truck Types</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="Home.html" data-bs-toggle="dropdown">Services</a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="Home.html">Dispatching Services</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link toggle" href="Home.html">About Us</a>
-        </li>
-      </ul>
-
-      <!-- RIGHT: Actions -->
-      <div class="d-flex align-items-center ms-auto gap-3 top-actions me-3">
-        <a href="Home.html">EN</a>
-        <a href="Home.html">Search</a>
-        <a href="Home.html">Notifications</a>
-        <a href="Home.html">Support</a>
-        <a href="ContactUs.html">Contact Us 💬</a>
-      </div>
-
-      <div class="d-flex align-items-center">
-        <a href="Home.html" class="btn-register">Register</a>
-        <button class="btn-login">Login</button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+        </ul>
+        <div class="d-flex ms-lg-3 mt-3 mt-lg-0">
+          <a href="#" class="btn-register">Register</a>
+          <button class="btn-login">Login</button>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-
-
-  <!-- Hero Section -->
-  <header class="hero text-center">
-    <div class="container">
+  <!-- Hero -->
+  <header class="hero d-flex align-items-center">
+    <div class="container text-white">
       <h1>Go Ventures</h1>
       <h2>Reliable Ground Freight Solutions</h2>
-      <p class="lead">Driving your ventures forward with efficiency, safety, and speed.</p>
+      <p class="lead mb-4">Driving your ventures forward with efficiency, safety, and speed.</p>
+      <a href="#services" class="btn btn-lg btn-primary rounded-pill px-4 py-2">Explore Services</a>
     </div>
   </header>
 
-
-
-
-  <!-- Services Section -->
-  <section id="services" class="mt-5">
+  <!-- Services -->
+  <section id="services">
     <div class="container">
-      <h2 class="text-center mb-4">Our Services</h2>
+      <h2 class="text-center mb-5 fw-bold">Our Services</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm">
-            <img src="images/ltl.jpg" class="card-img-top" alt="Less-than-Truckload">
+          <div class="card h-100">
+            <img src="images/ltl.jpg" class="card-img-top" alt="LTL">
             <div class="card-body">
-              <h5 class="card-title">Less-than-Truckload (LTL)</h5>
-              <p class="card-text">Perfect for smaller shipments—flexible, cost-efficient, and reliable freight solutions.</p>
-              <a href="contact.html" class="btn btn-primary">Contact Us</a>
+              <h5 class="text-white card-title fw-bold">Less-than-Truckload (LTL)</h5>
+              <p class="text-white card-text">Perfect for smaller shipments—flexible, cost-efficient, and reliable freight solutions.</p>
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm">
-            <img src="images/ftl.jpg" class="card-img-top" alt="Full Truckload">
+          <div class="card h-100">
+            <img src="images/ftl.jpg" class="card-img-top" alt="FTL">
             <div class="card-body">
-              <h5 class="card-title">Full Truckload (FTL)</h5>
-              <p class="card-text">Dedicated full-truckload transport with customizable routes and schedules to fit your business.</p>
-              <a href="contact.html" class="btn btn-primary">Contact Us</a>
+              <h5 class="text-white card-title fw-bold">Full Truckload (FTL)</h5>
+              <p class="text-white card-text">Dedicated full-truckload transport with customizable routes and schedules to fit your business.</p>
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm">
-            <img src="images/cross-border.jpg" class="card-img-top" alt="Cross-Border Freight">
+          <div class="card h-100">
+            <img src="images/cross-border.jpg" class="card-img-top" alt="Cross-Border">
             <div class="card-body">
-              <h5 class="card-title">Cross-Border Freight</h5>
-              <p class="card-text">Seamless international trucking, including customs support and efficient cross-border handling.</p>
-              <a href="contact.html" class="btn btn-primary">Contact Us</a>
+              <h5 class="text-white card-title fw-bold">Cross-Border Freight</h5>
+              <p class="text-white card-text">Seamless international trucking, including customs support and efficient cross-border handling.</p>
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </div>
@@ -322,179 +259,181 @@
     </div>
   </section>
 
-  <!-- Dispatching Services / Benefits Section -->
-  <section class="mt-5">
+  <!-- Why Choose Us -->
+  <section id="about" class="bg-dark text-white">
     <div class="container">
-      <h2 class="text-center mb-4">Dispatching Services Across the USA</h2>
-      <p class="text-center mb-5 lead">
-        At <strong>Go Ventures</strong>, we provide professional dispatching services for truckers in all the states. 
-        Whether you’re an independent owner-operator or a growing fleet, our goal is to maximize your loads, 
-        minimize your downtime, and keep your trucks moving profitably.
-      </p>
-
+      <h2 class="text-center mb-5 fw-bold">Why Choose Go Ventures?</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm text-center p-3">
-            <div class="card-body">
-              <h5 class="card-title">✅ Steady Loads</h5>
-              <p class="card-text">We connect you with reliable brokers and shippers so you never sit idle waiting for your next job.</p>
-            </div>
+          <div class="icon-card text-center">
+            <i class="bi bi-truck"></i>
+            <h5 class="fw-bold">Nationwide Coverage</h5>
+            <p>Seamless ground freight solutions across the U.S. for consistent, on-time deliveries.</p>
           </div>
         </div>
-
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm text-center p-3">
-            <div class="card-body">
-              <h5 class="card-title">📞 24/7 Support</h5>
-              <p class="card-text">Our dispatch team is available around the clock to handle calls, negotiations, and paperwork while you drive.</p>
-            </div>
+          <div class="icon-card text-center">
+            <i class="bi bi-award"></i>
+            <h5 class="fw-bold">Industry Expertise</h5>
+            <p>Years of logistics experience tailored to your business needs.</p>
           </div>
         </div>
-
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm text-center p-3">
-            <div class="card-body">
-              <h5 class="card-title">💰 Maximize Earnings</h5>
-              <p class="card-text">We negotiate the best rates and reduce your deadhead miles, so you earn more with every trip.</p>
-            </div>
+          <div class="icon-card text-center">
+            <i class="bi bi-headset"></i>
+            <h5 class="fw-bold">24/7 Support</h5>
+            <p>A dedicated team available around the clock to keep your operations running smoothly.</p>
           </div>
         </div>
-      </div>
-
-      <div class="text-center mt-4">
-        <a href="contact.html" class="btn btn-primary btn-lg">Work With Us</a>
+        <div class="col-md-4">
+          <div class="icon-card text-center">
+            <i class="bi bi-cash-stack"></i>
+            <h5 class="fw-bold">Cost-Effective</h5>
+            <p>Optimized routes and competitive pricing designed to improve your bottom line.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="icon-card text-center">
+            <i class="bi bi-shield-check"></i>
+            <h5 class="fw-bold">Safety & Compliance</h5>
+            <p>Your cargo handled with the highest safety standards and compliance.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="icon-card text-center">
+            <i class="bi bi-people"></i>
+            <h5 class="fw-bold">Customer Focused</h5>
+            <p>We build long-term partnerships by putting your success first.</p>
+          </div>
+        </div>
       </div>
     </div>
-
-<!-- Why Choose Us -->
-<section class="mt-5 py-5 bg-dark text-white">
-  <div class="container text-center">
-    <h2 class="mb-4">Why Choose Go Ventures?</h2>
-    <p class="lead mb-5">
-      At Go Ventures, we deliver more than just transportation — we provide reliability, efficiency, and peace of mind for your trucking operations. Here’s why businesses across the nation choose us:
-    </p>
-
-    <div class="row g-4">
-      <!-- Card 1 -->
-      <div class="col-md-4">
-        <div class="card bg-dark text-white border-0 shadow h-100">
-          <div class="card-header bg-transparent border-0 fw-bold fs-5 text-white">
-            🚚 Nationwide Coverage
-          </div>
-          <div class="card-body bg-secondary rounded">
-            <p class="mb-0">Seamless ground freight solutions across the U.S. for consistent, on-time deliveries.</p>
-          </div>
-        </div>
+  </section>
+<!-- About Us -->
+<section id="about-us" class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h2 class="fw-bold mb-3">About <span class="text-gold">Us</span></h2>
+        <p class="text-secondary">Our Impact in Numbers</p>
+        <p>
+          <strong class="text-gold">Go Ventures</strong> is dedicated to supporting truck drivers, owner-operators, and small fleets with professional dispatch services. Our team works as an extension of your business, so you can focus on the road.
+        </p>
+        <p>
+          What sets us apart is our personalized approach. We don’t believe in one-size-fits-all solutions. Instead, we tailor our services to fit your unique needs, truck type, and goals. Whether you’re just starting out or scaling your fleet, 
+          <strong class="text-gold">Go Ventures</strong> is here to help you grow.
+        </p>
+        <a href="#contact" class="btn btn-gold mt-3">Learn more about us <i class="bi bi-arrow-right"></i></a>
       </div>
-      <!-- Card 2 -->
-      <div class="col-md-4">
-        <div class="card bg-dark text-white border-0 shadow h-100">
-          <div class="card-header bg-transparent border-0 fw-bold fs-5 text-white">
-            🏆 Industry Expertise
-          </div>
-          <div class="card-body bg-secondary rounded">
-            <p class="mb-0">Backed by years of trucking and logistics experience tailored to your business needs.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="col-md-4">
-        <div class="card bg-dark text-white border-0 shadow h-100">
-          <div class="card-header bg-transparent border-0 fw-bold fs-5 text-white">
-            ⏰ 24/7 Real-Time Support
-          </div>
-          <div class="card-body bg-secondary rounded">
-            <p class="mb-0">A dedicated team always available to keep your operations running without interruptions.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="col-md-4">
-        <div class="card bg-dark text-white border-0 shadow h-100">
-          <div class="card-header bg-transparent border-0 fw-bold fs-5 text-white">
-            💲 Cost-Effective Solutions
-          </div>
-          <div class="card-body bg-secondary rounded">
-            <p class="mb-0">Optimized routes and competitive pricing designed to improve your bottom line.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 5 -->
-      <div class="col-md-4">
-        <div class="card bg-dark text-white border-0 shadow h-100">
-          <div class="card-header bg-transparent border-0 fw-bold fs-5 text-white">
-            🛡️ Safety & Compliance
-          </div>
-          <div class="card-body bg-secondary rounded">
-            <p class="mb-0">Your cargo is handled with the highest safety standards and full regulatory compliance.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 6 -->
-      <div class="col-md-4">
-        <div class="card bg-dark text-white border-0 shadow h-100">
-          <div class="card-header bg-transparent border-0 fw-bold fs-5 text-white">
-            🤝 Customer-Centered Approach
-          </div>
-          <div class="card-body bg-secondary rounded">
-            <p class="mb-0">We build long-term partnerships by putting your success first.</p>
-          </div>
+      <div class="col-md-6 text-center">
+        <div class="ratio ratio-16x9">
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/gPqWf-xzN_o?si=lCf-TzQEnvOOhaai" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+  <!-- Partners Section -->
+<section class="py-5 bg-dark text-white">
+  <div class="container text-center mb-4">
+    <h3 class="fw-bold">Partnerships with Major Brokers</h3>
+  </div>
+  <div class="logo-slider">
+    <div class="logo-slide-track">
+      <img src="images/coyote.png" height="80" alt="Coyote">
+      <img src="images/tql.png" alt="TQL">
+      <img src="images/rxo.png" alt="RXO">
+      <img src="images/landstar.png"alt="Landstar">
+      <img src="images/chr.png" alt="C.H. Robinson">
+      <img src="images/coyote.png" height="80" alt="Coyote">
+      <!-- Duplicate logos for smooth infinite loop -->
+      <img src="images/tql.png" alt="TQL">
+      <img src="images/rxo.png" alt="RXO">
+      <img src="images/landstar.png" alt="Landstar">
+      <img src="images/chr.png" alt="C.H. Robinson">
+      <img src="images/coyote.png" height="80" alt="Coyote">
+    </div>
+  </div>
+</section>
 
 <style>
-  .hover-card {
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  .hover-card:hover {
-    transform: translateY(-10px);
-    background-color: #FFFFFF; /* Golden orange */
-    color: #fff;
-  }
-  .hover-card:hover h5, 
-  .hover-card:hover p {
-    color: #fff;
-  }
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.logo-slide-track {
+  display: flex;
+  width: calc(250px * 12); /* 12 logos */
+  animation: scroll 20s linear infinite;
+}
+
+.logo-slide-track img {
+  width: 130px;
+  height: 60px;
+  margin: 0 40px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 </style>
-<!-- Footer -->
-  <footer class="text-white pt-5">
+
+
+  <!-- Footer -->
+  <footer class="text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-4">
-          <h5 class="fw-bold text-uppercase mb-3">Go Ventures</h5>
-          <p class="footer-desc">Reliable Ground Freight Solutions across the USA. Driving your ventures forward with efficiency, safety, and speed.</p>
+          <h5 class="fw-bold text-uppercase">Go Ventures</h5>
+          <p>Reliable Ground Freight Solutions across the USA. Driving your ventures forward with efficiency, safety, and speed.</p>
         </div>
         <div class="col-md-4 mb-4">
-          <h5 class="fw-bold text-uppercase mb-3">Contact Info</h5>
+          <h5 class="fw-bold text-uppercase">Contact Info</h5>
           <ul class="list-unstyled small">
-            <li class="mb-2"><i class="bi bi-geo-alt-fill text-warning me-2"></i>10510 W ALIANA TRACE DR APT 463 RICHMOND, TEXAS 77407</li>
-            <li class="mb-2"><i class="bi bi-telephone-fill text-warning me-2"></i>+1 (408) 412-1195</li>
-            <li><i class="bi bi-envelope-fill text-warning me-2"></i>info@goventuresdispatch.com</li>
+            <li><i class="bi bi-geo-alt-fill text-primary me-2"></i>10510 W ALIANA TRACE DR APT 463 RICHMOND, TEXAS 77407</li>
+            <li><i class="bi bi-telephone-fill text-primary me-2"></i>+1 (408) 412-1195</li>
+            <li><i class="bi bi-envelope-fill text-primary me-2"></i>info@goventuresdispatch.com</li>
           </ul>
         </div>
         <div class="col-md-4 mb-4">
-          <h5 class="fw-bold text-uppercase mb-3">Quick Links</h5>
+          <h5 class="fw-bold text-uppercase">Quick Links</h5>
           <ul class="list-unstyled small">
-            <li class="mb-2"><a href="Home.html" class="text-white text-decoration-none">Home</a></li>
-            <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
-            <li class="mb-2"><a href="services.html" class="text-white text-decoration-none">Services</a></li>
-            <li><a href="ContactUs.html" class="text-white text-decoration-none">Contact</a></li>
+            <li><a href="#" class="text-white">Home</a></li>
+            <li><a href="#about" class="text-white">About Us</a></li>
+            <li><a href="#services" class="text-white">Services</a></li>
+            <li><a href="#contact" class="text-white">Contact</a></li>
           </ul>
         </div>
       </div>
       <hr class="border-secondary">
-      <div class="text-center pb-3 small text-muted">© 2025 Go Ventures. All Rights Reserved.</div>
+      <div class="text-center pb-3 small">© 2025 Go Ventures. All Rights Reserved.</div>
     </div>
   </footer>
 
-<!-- Bootstrap Icons CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let lastScroll = 0;
+  const navbar = document.querySelector(".navbar-custom");
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 80) {
+      // scrolling down -> hide navbar
+      navbar.classList.add("navbar-hidden");
+    } else {
+      // scrolling up -> show navbar
+      navbar.classList.remove("navbar-hidden");
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
 
 </body>
+</html>
