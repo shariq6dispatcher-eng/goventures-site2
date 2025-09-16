@@ -187,21 +187,31 @@
 
 <script>
   const form = document.getElementById("contactForm");
+
   form.addEventListener("submit", async function(e) {
     e.preventDefault(); // stop default redirect
+
     const formData = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      window.location.href = "thanks.html"; // your own page
-    } else {
-      alert("Oops! Something went wrong. Please try again.");
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // ✅ Force redirect to your custom thank you page
+        window.location.href = "thanks.html";
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Network error, please try again later.");
     }
   });
 </script>
+
 
   
   <!-- Footer -->
@@ -254,6 +264,7 @@
 
 </body>
 </html>
+
 
 
 
