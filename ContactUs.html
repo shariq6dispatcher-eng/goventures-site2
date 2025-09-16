@@ -93,9 +93,11 @@
       border: 1px solid #333;
     }
     .form-control:focus {
-      border-color: #00b4d8;
-      box-shadow: 0 0 0 0.2rem rgba(0,180,216,0.25);
-    }
+  background-color: #2a2a2a !important; /* Keep same dark background */
+  color: #fff !important;
+  border-color: #00b4d8; /* Optional: keep your highlight border */
+  box-shadow: 0 0 0 0.2rem rgba(0,180,216,0.25); /* Optional blue glow */
+}
     .btn-primary {
       background: #00b4d8;
       border: none;
@@ -136,11 +138,9 @@
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link active" href="trucktypes.html">Truck Types</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="Home.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="Home.html#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="ContactUs.html">Contact</a></li>
         </ul>
         <div class="d-flex ms-lg-3 mt-3 mt-lg-0">
           <a href="Home.html" class="btn-register">Register</a>
@@ -157,7 +157,8 @@
         <h2 class="text-center fw-bold mb-4">Contact Us</h2>
         <p class="text-center mb-5">Have questions or need a custom freight solution? Fill out the form and we’ll respond within 2 business days.</p>
 
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form action="https://formspree.io/f/mnnbkqya" method="POST">
+  <input type="hidden" name="_redirect" value="https://www.goventuresdispatch.com/thanks">
           <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
             <input type="text" id="name" name="name" class="form-control" required>
@@ -234,5 +235,3 @@
 
 </body>
 </html>
-
-
