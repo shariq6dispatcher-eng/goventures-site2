@@ -159,7 +159,6 @@
         <p class="text-center mb-5">Have questions or need a custom freight solution? Fill out the form and we’ll respond within 2 business days.</p>
 
         <form action="https://formspree.io/f/mnnbkqya" method="POST">
-         <input type="hidden" name="_next" value="thanks.html">
           <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
             <input type="text" id="name" name="name" class="form-control" required>
@@ -186,6 +185,25 @@
     </div>
   </section>
 
+<script>
+  const form = document.getElementById("contactForm");
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault(); // stop default redirect
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      window.location.href = "thanks.html"; // your own page
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  });
+</script>
+
+  
   <!-- Footer -->
   <footer class="text-white">
     <div class="container">
@@ -233,25 +251,10 @@
       lastScroll = currentScroll;
     });
   </script>
-<script>
-  const form = document.getElementById("contactForm");
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault(); // stop default redirect
-    const formData = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      window.location.href = "thanks.html"; // your own page
-    } else {
-      alert("Oops! Something went wrong. Please try again.");
-    }
-  });
-</script>
+
 </body>
 </html>
+
 
 
 
