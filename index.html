@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Go Ventures - Ground Freight Services</title>
-  <link rel="icon" href="logo.ico" type="image/x-icon">
+<link rel="icon" href="logo.ico" type="image/x-icon">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
     body {
@@ -38,24 +40,21 @@
       color: #00b4d8 !important;
     }
 .navbar-brand img {
-  height: 60px;       /* Adjust logo height */
-  width: auto;        /* Keep aspect ratio */
+  height: 60px;
+  width: auto;
   object-fit: contain;
 }
-
 .navbar-brand {
   display: flex;
-  align-items: center; /* Vertically align logo */
+  align-items: center;
 }
 .navbar .container {
   padding-left: 0;
   padding-right: 0;
 }
-/* Navbar transition */
 .navbar-custom {
   transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
-
 .navbar-hidden {
   transform: translateY(-100%);
   opacity: 0;
@@ -178,17 +177,167 @@
       color: #00b4d8;
     }
 .text-gold {
-  color: #f4b000;
+  color: #f08930;
 }
 .btn-gold {
-  color: #f4b000;
+  color: #f08930;
 }
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.logo-slide-track {
+  display: flex;
+  width: calc(250px * 12);
+  animation: scroll 20s linear infinite;
+}
+.logo-slide-track img {
+  width: 130px;
+  height: 60px;
+  margin: 0 40px;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.stats-section {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 20px;
+      padding: 60px 20px;
+    }
+
+    .stat-box {
+      background: #1a1a1a; /* Dark grey card */
+      flex: 1;
+      padding: 40px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+
+    .stat-box h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #aaa; /* Lighter grey */
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .stat-box .counter {
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    .white {
+      color: #fff; /* Main text white */
+    }
+
+    .red {
+      color: #f08930; /* Accent red */
+    }
+.truck-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      padding: 60px 20px;
+    }
+
+    .left-content {
+      max-width: 400px;
+    }
+
+    .left-content h2 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .left-content h2 span {
+      color: #f08930;
+    }
+
+    .left-content p {
+      margin: 20px 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    .left-content .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #f08930;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .left-content .btn:hover {
+      background: #b00500;
+    }
+
+    .truck-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      max-width: 700px;
+    }
+
+    .truck-card {
+      position: relative;
+      height: 150px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .truck-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .truck-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .truck-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.truck-card:hover::before {
+  opacity: 1;
+}
+
+    .truck-card span {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" data-aos="fade-down">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="#">
       <img src="images/logo.png" alt="Go Ventures Logo" class="logo-img">
@@ -200,8 +349,7 @@
         <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-<li class="nav-item"><a class="nav-link" href="trucktypes.html">TruckTypes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
         </ul>
         <div class="d-flex ms-lg-3 mt-3 mt-lg-0">
@@ -214,7 +362,7 @@
 
   <!-- Hero -->
   <header class="hero d-flex align-items-center">
-    <div class="container text-white">
+    <div class="container text-white" data-aos="fade-up">
       <h1>Go Ventures</h1>
       <h2>Reliable Ground Freight Solutions</h2>
       <p class="lead mb-4">Driving your ventures forward with efficiency, safety, and speed.</p>
@@ -225,9 +373,9 @@
   <!-- Services -->
   <section id="services">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold">Our Services</h2>
+      <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">Our Services</h2>
       <div class="row g-4">
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
           <div class="card h-100">
             <img src="images/ltl.jpg" class="card-img-top" alt="LTL">
             <div class="card-body">
@@ -237,7 +385,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
           <div class="card h-100">
             <img src="images/ftl.jpg" class="card-img-top" alt="FTL">
             <div class="card-body">
@@ -247,7 +395,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
           <div class="card h-100">
             <img src="images/cross-border.jpg" class="card-img-top" alt="Cross-Border">
             <div class="card-body">
@@ -264,44 +412,44 @@
   <!-- Why Choose Us -->
   <section id="about" class="bg-dark text-white">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold">Why Choose Go Ventures?</h2>
+      <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">Why Choose Go Ventures?</h2>
       <div class="row g-4">
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
           <div class="icon-card text-center">
             <i class="bi bi-truck"></i>
             <h5 class="fw-bold">Nationwide Coverage</h5>
             <p>Seamless ground freight solutions across the U.S. for consistent, on-time deliveries.</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
           <div class="icon-card text-center">
             <i class="bi bi-award"></i>
             <h5 class="fw-bold">Industry Expertise</h5>
             <p>Years of logistics experience tailored to your business needs.</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
           <div class="icon-card text-center">
             <i class="bi bi-headset"></i>
             <h5 class="fw-bold">24/7 Support</h5>
             <p>A dedicated team available around the clock to keep your operations running smoothly.</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="400">
           <div class="icon-card text-center">
             <i class="bi bi-cash-stack"></i>
             <h5 class="fw-bold">Cost-Effective</h5>
             <p>Optimized routes and competitive pricing designed to improve your bottom line.</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="500">
           <div class="icon-card text-center">
             <i class="bi bi-shield-check"></i>
             <h5 class="fw-bold">Safety & Compliance</h5>
             <p>Your cargo handled with the highest safety standards and compliance.</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="600">
           <div class="icon-card text-center">
             <i class="bi bi-people"></i>
             <h5 class="fw-bold">Customer Focused</h5>
@@ -311,11 +459,12 @@
       </div>
     </div>
   </section>
+
 <!-- About Us -->
 <section id="about-us" class="bg-dark text-white py-5">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6 mb-4 mb-md-0">
+      <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
         <h2 class="fw-bold mb-3">About <span class="text-gold">Us</span></h2>
         <p class="text-secondary">Our Impact in Numbers</p>
         <p>
@@ -327,7 +476,7 @@
         </p>
         <a href="#contact" class="btn btn-gold mt-3">Learn more about us <i class="bi bi-arrow-right"></i></a>
       </div>
-      <div class="col-md-6 text-center">
+      <div class="col-md-6 text-center" data-aos="fade-left">
         <div class="ratio ratio-16x9">
        <iframe width="560" height="315" src="https://www.youtube.com/embed/gPqWf-xzN_o?si=lCf-TzQEnvOOhaai" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
@@ -335,13 +484,108 @@
     </div>
   </div>
 </section>
+<!-----Truck Types--->
+<section class="truck-section">
+    <!-- Left Side -->
+    <div class="left-content">
+      <h2>Choose your <span>truck type</span></h2>
+      <p>Your trucks will stay loaded, your routes optimized, and your paperwork handled — so you can focus on the road.</p>
+      <a href="#" class="btn">Get a free setup</a>
+    </div>
 
+    <!-- Right Side Grid -->
+    <div class="truck-grid">
+      <div class="truck-card">
+        <img src="images/hotshot.jpg" alt="Hotshot">
+        <span>Hotshot</span>
+      </div>
+      <div class="truck-card">
+        <img src="images/poweronly.jpg" alt="Power Only">
+        <span>Power Only</span>
+      </div>
+      <div class="truck-card">
+        <img src="images/flatbed.jpg" alt="Flatbed">
+        <span>Flatbed</span>
+      </div>
+      <div class="truck-card">
+        <img src="images/reefer.jpg" alt="Reefer">
+        <span>Reefer</span>
+      </div>
+      <div class="truck-card">
+        <img src="images/dry-van.png" alt="Dry Van">
+        <span>Dry Van</span>
+      </div>
+      <div class="truck-card">
+        <img src="images/freightliner.png" alt="Conestoga Trailer">
+        <span>Conestoga Trailer</span>
+      </div>
+    </div>
+  </section>
+
+<!---Calculation---->
+<section class="stats-section">
+    <div class="stat-box">
+      <h4>YEARS OF EXPERIENCE</h4>
+      <div class="counter"><span class="white" data-target="10">0</span><span class="red">+</span></div>
+    </div>
+
+    <div class="stat-box">
+      <h4>LBS DISPATCHED</h4>
+      <div class="counter"><span class="white" data-target="1">0</span><span class="red">b+</span></div>
+    </div>
+
+    <div class="stat-box">
+      <h4>AVERAGE GROSS REVENUE</h4>
+      <div class="counter"><span class="red">$</span><span class="white" data-target="7500">0</span><span class="red">k</span></div>
+    </div>
+
+    <div class="stat-box">
+      <h4>LOADS BOOKED</h4>
+      <div class="counter"><span class="white" data-target="30">0</span><span class="red">b+</span></div>
+    </div>
+  </section>
+
+  <script>
+    // Counter animation
+    const counters = document.querySelectorAll('.counter .white');
+    const speed = 200; // higher = slower
+
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+
+          const increment = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    };
+
+    // Animate when section is visible
+    const section = document.querySelector('.stats-section');
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        animateCounters();
+        observer.unobserve(section); // run once
+      }
+    }, { threshold: 0.5 });
+
+    observer.observe(section);
+  </script>
   <!-- Partners Section -->
 <section class="py-5 bg-dark text-white">
   <div class="container text-center mb-4">
-    <h3 class="fw-bold">Partnerships with Major Brokers</h3>
+    <h3 class="fw-bold" data-aos="fade-up">Partnerships with Major Brokers</h3>
   </div>
-  <div class="logo-slider">
+  <div class="logo-slider" data-aos="fade-up" data-aos-delay="200">
     <div class="logo-slide-track">
       <img src="images/coyote.png" height="80" alt="Coyote">
       <img src="images/tql.png" alt="TQL">
@@ -349,7 +593,6 @@
       <img src="images/landstar.png"alt="Landstar">
       <img src="images/chr.png" alt="C.H. Robinson">
       <img src="images/coyote.png" height="80" alt="Coyote">
-      <!-- Duplicate logos for smooth infinite loop -->
       <img src="images/tql.png" alt="TQL">
       <img src="images/rxo.png" alt="RXO">
       <img src="images/landstar.png" alt="Landstar">
@@ -359,34 +602,8 @@
   </div>
 </section>
 
-<style>
-.logo-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.logo-slide-track {
-  display: flex;
-  width: calc(250px * 12); /* 12 logos */
-  animation: scroll 20s linear infinite;
-}
-
-.logo-slide-track img {
-  width: 130px;
-  height: 60px;
-  margin: 0 40px;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
-
-
   <!-- Footer -->
-  <footer class="text-white">
+  <footer class="text-white" data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-4">
@@ -416,29 +633,56 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+ <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  let lastScroll = 0;
-  const navbar = document.querySelector(".navbar-custom");
-
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > lastScroll && currentScroll > 80) {
-      // scrolling down -> hide navbar
-      navbar.classList.add("navbar-hidden");
-    } else {
-      // scrolling up -> show navbar
-      navbar.classList.remove("navbar-hidden");
+  <script>
+    let prevScroll = window.pageYOffset;
+    window.onscroll = function() {
+      let currentScroll = window.pageYOffset;
+      const navbar = document.querySelector(".navbar");
+      if (prevScroll > currentScroll) {
+        navbar.classList.remove("navbar-hidden");
+      } else {
+        navbar.classList.add("navbar-hidden");
+      }
+      prevScroll = currentScroll;
     }
-
-    lastScroll = currentScroll;
+  </script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,   // Animation speed (ms)
+    once: true,       // Run animation only once
   });
+</script>
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+<!-- Navbar Hide on Scroll -->
+<script>
+  let prevScroll = window.pageYOffset;
+  window.onscroll = function() {
+    let currentScroll = window.pageYOffset;
+    const navbar = document.querySelector(".navbar");
+    if (prevScroll > currentScroll) {
+      navbar.classList.remove("navbar-hidden");
+    } else {
+      navbar.classList.add("navbar-hidden");
+    }
+    prevScroll = currentScroll;
+  }
 </script>
 
 </body>
 </html>
-
-
 
