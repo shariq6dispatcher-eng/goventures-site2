@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go Ventures - Flatbed Dispatching</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Navbar */
+    .navbar-custom {
+      background: rgba(20, 20, 20, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.8rem 1rem;
+      transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+    .navbar-nav .nav-link {
+      color: #e0e0e0 !important;
+      font-weight: 500;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #00b4d8 !important;
+    }
+    .navbar-brand img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+    .navbar-hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+   .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background: url('images/flatbed-hero.jpg') center/cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .breadcrumb a {
+      text-decoration: none;
+      color: #00b4d8;
+    }
+
+    /* Content Sections */
+    section {
+      scroll-margin-top: 100px;
+    }
+    .icon-card, .feature-card, .step, .testimonial-card {
+      background: #1e1e1e;
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+    .icon-card:hover, .step:hover {
+      background: #00b4d8;
+      color: #fff;
+      transform: translateY(-5px);
+    }
+    .icon-card i, .step .number {
+      color: #00b4d8;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .icon-card:hover i, .step:hover .number {
+      color: #fff;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+
+    /* Table */
+    .table-dark th {
+      background: #00b4d8;
+      color: #fff;
+    }
+
+    /* CTA */
+    .cta-section {
+      position: relative;
+      background: url('images/cta-bg.jpg') center/cover no-repeat;
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+    }
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(30,30,30,0.8);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      padding-top: 3rem;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #00b4d8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <img src="images/logo.png" alt="Go Ventures Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="trucktypes.html">TruckTypes</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+        </ul>
+        <div class="d-flex ms-lg-3 mt-3 mt-lg-0">
+          <a href="#" class="btn btn-outline-info me-2">Register</a>
+          <button class="btn btn-info">Login</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+  <div class="container" data-aos="zoom-in">
+    <nav aria-label="breadcrumb" data-aos="fade-down" data-aos-delay="200">
+      <ol class="breadcrumb justify-content-center mb-3">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="trucktypes.html">Truck Types</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">Flatbed Truck</li>
+      </ol>
+    </nav>
+    <h1 data-aos="fade-up" data-aos-delay="400">Flatbed Dispatching</h1>
+    <p class="lead" data-aos="fade-up" data-aos-delay="600">
+      Reliable dispatching solutions for Flatbed owners and operators.
+    </p>
+  </div>
+</section>
+
+<!-- Intro Section -->
+<section class="py-5 bg-dark text-light">
+  <div class="container d-flex flex-column flex-md-row align-items-center">
+    <img src="images/flatbed.jpg" 
+         class="img-fluid rounded mb-4 mb-md-0 me-md-4" 
+         alt="Flatbed Trailer" 
+         data-aos="fade-right">
+    <div data-aos="fade-left">
+      <h2 class="fw-bold text-info">What is a Flatbed?</h2>
+      <p>A flatbed trailer is an open-deck trailer with no sides or roof, designed to transport oversized, heavy, or irregularly shaped cargo that doesn’t fit in standard trailers.</p>
+      <ul class="list-unstyled">
+        <li><i class="bi bi-check-circle text-info me-2"></i> Open design for easy loading from all sides</li>
+        <li><i class="bi bi-check-circle text-info me-2"></i> Ideal for oversized and heavy equipment</li>
+        <li><i class="bi bi-check-circle text-info me-2"></i> Flexible for multiple industries</li>
+      </ul>
+      
+      <h2 class="fw-bold text-info">Why Choose a Flatbed?</h2>
+      <p>Flatbeds provide unmatched versatility in hauling loads of all shapes and sizes.</p>
+      <ul class="list-unstyled">
+        <li><i class="bi bi-check-circle text-info me-2"></i> Versatility: Perfect for machinery, construction materials, and oversized loads.</li>
+        <li><i class="bi bi-check-circle text-info me-2"></i> Accessibility: Freight can be loaded/unloaded with cranes or forklifts from any angle.</li>
+        <li><i class="bi bi-check-circle text-info me-2"></i> High Demand: Flatbeds are always in demand for specialized freight.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Go Ventures Section -->
+<section class="py-5 bg-dark text-light">
+  <div class="container d-flex flex-column flex-md-row align-items-center">
+    <div class="me-md-4 order-2 order-md-1" data-aos="fade-right">
+      <h2 class="fw-bold text-info">Why Choose Go Ventures?</h2>
+      <p>At Go Ventures, we specialize in maximizing profits for flatbed operators...</p>
+      <ul class="list-unstyled">
+        <li><i class="bi bi-check-circle text-info me-2"></i> Consistent loads tailored for flatbeds</li>
+        <li><i class="bi bi-check-circle text-info me-2"></i> 24/7 dispatch and route assistance</li>
+        <li><i class="bi bi-check-circle text-info me-2"></i> Top-paying freight opportunities</li>
+      </ul>
+    </div>
+    <img src="images/dispatch-team.png" 
+         class="img-fluid rounded mb-4 mb-md-0 order-1 order-md-2" 
+         alt="Dispatch Team" 
+         data-aos="fade-left">
+  </div>
+</section>
+
+
+  <!-- Why Choose -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Why Choose Flatbed Dispatching?</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="icon-card text-center">
+            <i class="bi bi-truck"></i>
+            <h5>Specialized Loads</h5>
+            <p>Get matched with freight that fits your trailer capabilities.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="icon-card text-center">
+            <i class="bi bi-cash-stack"></i>
+            <h5>Premium Rates</h5>
+            <p>We negotiate the best rates for oversized and heavy loads.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="icon-card text-center">
+            <i class="bi bi-headset"></i>
+            <h5>24/7 Support</h5>
+            <p>Our team ensures smooth operations around the clock.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+<section class="py-5 bg-dark">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Industries That Rely on Flatbeds</h2>
+    <div class="row g-4">
+      <div class="col-md-3 text-center">
+        <i class="bi bi-building fs-2 text-info"></i>
+        <h6 class="mt-2">Construction & Infrastructure</h6>
+      </div>
+      <div class="col-md-3 text-center">
+        <i class="bi bi-tools fs-2 text-info"></i>
+        <h6 class="mt-2">Machinery & Heavy Equipment</h6>
+      </div>
+      <div class="col-md-3 text-center">
+        <i class="bi bi-columns fs-2 text-info"></i>
+        <h6 class="mt-2">Steel & Lumber</h6>
+      </div>
+      <div class="col-md-3 text-center">
+        <i class="bi bi-gear-wide-connected fs-2 text-info"></i>
+        <h6 class="mt-2">Industrial Manufacturing</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Comparison -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4">Why Work With Go Ventures?</h2>
+      <div class="table-responsive">
+        <table class="table table-dark table-bordered text-center">
+          <thead>
+            <tr>
+              <th>Without Dispatcher</th>
+              <th>With Go Ventures Dispatch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Struggling to find specialized freight</td>
+              <td>We match you with consistent flatbed loads</td>
+            </tr>
+            <tr>
+              <td>Negotiating tough oversized rates alone</td>
+              <td>We secure premium pay for specialized freight</td>
+            </tr>
+            <tr>
+              <td>Managing permits and paperwork yourself</td>
+              <td>We handle compliance and setup</td>
+            </tr>
+            <tr>
+              <td>Unpredictable hauls</td>
+              <td>Reliable freight opportunities weekly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-5 bg-dark">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">How It Works</h2>
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="step">
+            <div class="number">1</div>
+            <h5>Sign Up</h5>
+            <p>Register and share your flatbed details.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step">
+            <div class="number">2</div>
+            <h5>Get Matched</h5>
+            <p>We connect you with high-paying loads in your lane.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step">
+            <div class="number">3</div>
+            <h5>Start Hauling</h5>
+            <p>Focus on driving while we handle dispatch and paperwork.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <section class="py-5 bg-dark text-white">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Frequently Asked Questions</h2>
+    <div class="accordion accordion-flush" id="faqAccordion">
+
+      <div class="accordion-item bg-dark border-bottom border-secondary">
+        <h2 class="accordion-header" id="faq1">
+          <button class="accordion-button collapsed bg-dark text-white" 
+                  type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+            Do I need special permits for oversized loads?
+          </button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-light">
+            Yes, many oversized and heavy loads require permits depending on state regulations. We help with paperwork and compliance.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item bg-dark border-bottom border-secondary">
+        <h2 class="accordion-header" id="faq2">
+          <button class="accordion-button collapsed bg-dark text-white" 
+                  type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+            What can be hauled on a flatbed?
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-light">
+            Flatbeds are used to transport construction materials, machinery, steel, lumber, oversized cargo, and other freight that cannot fit in enclosed trailers.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item bg-dark border-bottom border-secondary">
+        <h2 class="accordion-header" id="faq3">
+          <button class="accordion-button collapsed bg-dark text-white" 
+                  type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+            How much weight can a flatbed haul?
+          </button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-light">
+            Standard flatbeds can typically haul up to 48,000 lbs, depending on truck and trailer specifications.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item bg-dark border-bottom border-secondary">
+        <h2 class="accordion-header" id="faq4">
+          <button class="accordion-button collapsed bg-dark text-white" 
+                  type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+            What are average rates per mile for flatbeds?
+          </button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-light">
+            Flatbed rates typically range between $2.50–$4.00 per mile depending on region and freight type.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Final CTA with Image -->
+  <section class="py-5 cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="fw-bold mb-3">Keep Your Flatbed Moving</h2>
+        <p>Join Go Ventures Dispatch today and ensure your flatbed stays loaded with profitable freight.</p>
+        <a href="ContactUs.html" class="btn btn-lg btn-primary rounded-pill mt-3">Get Started Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold text-uppercase">Go Ventures</h5>
+          <p>Reliable Ground Freight Solutions across the USA. Driving your ventures forward with efficiency, safety, and speed.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold text-uppercase">Contact Info</h5>
+          <ul class="list-unstyled small">
+            <li><i class="bi bi-geo-alt-fill text-primary me-2"></i>10510 W ALIANA TRACE DR APT 463 RICHMOND, TEXAS 77407</li>
+            <li><i class="bi bi-telephone-fill text-primary me-2"></i>+1 (408) 412-1195</li>
+            <li><i class="bi bi-envelope-fill text-primary me-2"></i>info@goventuresdispatch.com</li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold text-uppercase">Quick Links</h5>
+          <ul class="list-unstyled small">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="ContactUs.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <div class="text-center pb-3">
+        <p class="small mb-0">&copy; 2025 Go Ventures Dispatch. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let prevScroll = window.pageYOffset;
+    window.onscroll = function() {
+      let currentScroll = window.pageYOffset;
+      const navbar = document.querySelector(".navbar");
+      if (prevScroll > currentScroll) {
+        navbar.classList.remove("navbar-hidden");
+      } else {
+        navbar.classList.add("navbar-hidden");
+      }
+      prevScroll = currentScroll;
+    }
+  </script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,   // Animation speed (ms)
+    once: true,       // Run animation only once
+  });
+</script>
+
+</body>
+</html>
