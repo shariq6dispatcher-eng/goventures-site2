@@ -210,34 +210,24 @@
     }
 
     .stat-box {
-      background: #1a1a1a; /* Dark grey card */
-      flex: 1;
-      padding: 40px;
-      text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    }
-
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
     .stat-box h4 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #aaa; /* Lighter grey */
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-    }
-
-    .stat-box .counter {
-      font-size: 50px;
-      font-weight: bold;
-    }
-
-    .white {
-      color: #fff; /* Main text white */
-    }
-
-    .red {
-      color: #f08930; /* Accent red */
-    }
+  font-size: 14px;
+  font-weight: 600;
+  color: #aaa;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.stat-box .counter {
+  font-size: 32px;
+  font-weight: bold;
+}
+.white { color: #fff; }
+.red { color: #f08930; }
 .truck-section {
       display: flex;
       justify-content: center;
@@ -290,27 +280,25 @@
     }
 
     .truck-card {
-      position: relative;
-      height: 150px;
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      display: flex;
-      align-items: flex-end;
-    }
+  position: relative;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+}
 
     .truck-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .truck-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .truck-card::before {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.truck-card:hover img {
+  transform: scale(1.05);
+}
+.truck-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -318,20 +306,19 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-
 .truck-card:hover::before {
   opacity: 1;
 }
+.truck-card span {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 2;
+}
 
-    .truck-card span {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-      z-index: 2;
-    }
   </style>
 </head>
 <body>
@@ -485,66 +472,95 @@
     </div>
   </div>
 </section>
-<!-----Truck Types--->
-<section class="truck-section">
-    <!-- Left Side -->
-    <div class="left-content">
-      <h2>Choose your <span>truck type</span></h2>
-      <p>Your trucks will stay loaded, your routes optimized, and your paperwork handled — so you can focus on the road.</p>
-      <a href="#" class="btn">Get a free setup</a>
-    </div>
+<!-- Truck Types -->
+<section class="truck-section py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <!-- Left Content -->
+      <div class="col-lg-4 col-md-12">
+        <div class="left-content">
+          <h2>Choose your <span>truck type</span></h2>
+          <p>Your trucks will stay loaded, your routes optimized, and your paperwork handled — so you can focus on the road.</p>
+          <a href="#" class="btn">Get a free setup</a>
+        </div>
+      </div>
 
-    <!-- Right Side Grid -->
-    <div class="truck-grid">
-      <div class="truck-card">
-        <img src="images/hotshot.jpg" alt="Hotshot">
-        <span>Hotshot</span>
-      </div>
-      <div class="truck-card">
-        <img src="images/poweronly.jpg" alt="Power Only">
-        <span>Power Only</span>
-      </div>
-      <div class="truck-card">
-        <img src="images/flatbed.jpg" alt="Flatbed">
-        <span>Flatbed</span>
-      </div>
-      <div class="truck-card">
-        <img src="images/reefer.jpg" alt="Reefer">
-        <span>Reefer</span>
-      </div>
-      <div class="truck-card">
-        <img src="images/dry-van.png" alt="Dry Van">
-        <span>Dry Van</span>
-      </div>
-      <div class="truck-card">
-        <img src="images/freightliner.png" alt="Conestoga Trailer">
-        <span>Conestoga Trailer</span>
+      <!-- Right Grid -->
+      <div class="col-lg-8 col-md-12">
+        <div class="row g-3">
+          <div class="col-6 col-md-4">
+            <div class="truck-card">
+              <img src="images/hotshot.jpg" alt="Hotshot">
+              <span>Hotshot</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="truck-card">
+              <img src="images/poweronly.jpg" alt="Power Only">
+              <span>Power Only</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="truck-card">
+              <img src="images/flatbed.jpg" alt="Flatbed">
+              <span>Flatbed</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="truck-card">
+              <img src="images/reefer.jpg" alt="Reefer">
+              <span>Reefer</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="truck-card">
+              <img src="images/dry-van.png" alt="Dry Van">
+              <span>Dry Van</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="truck-card">
+              <img src="images/freightliner.png" alt="Conestoga Trailer">
+              <span>Conestoga Trailer</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-<!---Calculation---->
-<section class="stats-section">
-    <div class="stat-box">
-      <h4>YEARS OF EXPERIENCE</h4>
-      <div class="counter"><span class="white" data-target="10">0</span><span class="red">+</span></div>
+<!-- Stats Section -->
+<section class="stats-section py-5">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <h4>YEARS OF EXPERIENCE</h4>
+          <div class="counter"><span class="white" data-target="10">0</span><span class="red">+</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <h4>LBS DISPATCHED</h4>
+          <div class="counter"><span class="white" data-target="1">0</span><span class="red">b+</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <h4>AVERAGE GROSS REVENUE</h4>
+          <div class="counter"><span class="red">$</span><span class="white" data-target="7500">0</span><span class="red">k</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <h4>LOADS BOOKED</h4>
+          <div class="counter"><span class="white" data-target="30">0</span><span class="red">b+</span></div>
+        </div>
+      </div>
     </div>
-
-    <div class="stat-box">
-      <h4>LBS DISPATCHED</h4>
-      <div class="counter"><span class="white" data-target="1">0</span><span class="red">b+</span></div>
-    </div>
-
-    <div class="stat-box">
-      <h4>AVERAGE GROSS REVENUE</h4>
-      <div class="counter"><span class="red">$</span><span class="white" data-target="7500">0</span><span class="red">k</span></div>
-    </div>
-
-    <div class="stat-box">
-      <h4>LOADS BOOKED</h4>
-      <div class="counter"><span class="white" data-target="30">0</span><span class="red">b+</span></div>
-    </div>
-  </section>
+  </div>
+</section>
 
   <script>
     // Counter animation
@@ -686,5 +702,6 @@
 
 </body>
 </html>
+
 
 
