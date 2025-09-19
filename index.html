@@ -314,6 +314,45 @@
   color: #fff;
   z-index: 2;
 }
+.hero-video {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-video video#bgVideo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.quote-box {
+  max-width: 100%;
+}
+
+.quote-box strong {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #000;
+}
+
+#quotePercent {
+  color: #f08930; /* Use your gold accent color */
+}
+
+.hero-video a {
+  color: #f08930;
+  text-decoration: underline;
+}
+
+.hero-video a:hover {
+  color: #d67f00;
+  text-decoration: none;
+}
 
   </style>
 </head>
@@ -343,15 +382,134 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero d-flex align-items-center">
-    <div class="container text-white" data-aos="fade-up">
-      <h1>Go Ventures</h1>
-      <h2>Reliable Ground Freight Solutions</h2>
-      <p class="lead mb-4">Driving your ventures forward with efficiency, safety, and speed.</p>
-      <a href="carrier-on-boarding.html" class="btn btn-lg btn-primary rounded-pill px-4 py-2">Enroll Now!</a>
+ <!-- Hero -->
+<header class="hero-video d-flex align-items-center position-relative" style="height: 80vh;">
+
+  <!-- Background video -->
+  <video autoplay muted loop playsinline id="bgVideo" 
+         class="position-absolute w-100 h-100" 
+         style="object-fit: cover; top: 0; left: 0; z-index: 0;">
+    <source src="images/hero-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark overlay -->
+  <div class="overlay position-absolute w-100 h-100" 
+       style="background: rgba(0,0,0,0.5); top: 0; left: 0; z-index: 1;">
+  </div>
+
+  <!-- Content container -->
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row align-items-center">
+
+      <!-- Left text -->
+<div class="col-md-6 text-gold">
+  <h1 class="fw-bold mb-4" style="font-size: 2.8rem; line-height: 1.1;">
+    GoVentures
+  </h1>
+  <h1 class="fw-bold mb-4 text-white" style="font-size: 2.8rem; line-height: 1.1;">
+    Affordable dispatch services,<br />
+    with high-paying loads
+  </h1>
+
+  <p style="max-width: 400px; color: #ddd;">
+    We are looking for long term partners because we know that your success is our success. Maximize your earning potential with our <a href="#services" style="color: #f08930;">services</a>.
+  </p>
+</div>
+
+      <!-- Right quote calculator -->
+<div class="col-md-5 offset-md-1">
+  <div class="quote-box bg-dark rounded p-4 shadow" 
+       style="background-color: #121212; box-shadow: 0 8px 20px rgba(240, 137, 48, 0.6) !important; color: #f08930;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <strong style="color: #f08930;">GET YOUR INSTANT QUOTE</strong>
+      <span id="quotePercent" class="fs-4 fw-bold" style="color: #f08930;">0%</span>
     </div>
-  </header>
+
+    <form id="quoteForm">
+      <div class="mb-3">
+        <select id="equipment" class="form-select" required 
+                style="background-color: #1e1e1e; color: #f08930; border: 1px solid #f08930;">
+          <option value="" disabled selected style="color: #aaa;">Type of equipment</option>
+          <option value="dry_van">Dry Van</option>
+          <option value="flat_bed">Flat Bed</option>
+          <option value="reefer">Reefer</option>
+          <option value="step_deck">Step Deck</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <select id="trucks" class="form-select" required 
+                style="background-color: #1e1e1e; color: #f08930; border: 1px solid #f08930;">
+          <option value="" disabled selected style="color: #aaa;">Number of trucks</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <select id="months" class="form-select" required 
+                style="background-color: #1e1e1e; color: #f08930; border: 1px solid #f08930;">
+          <option value="" disabled selected style="color: #aaa;">Time in business (months)</option>
+          <option value="0-6">0-6</option>
+          <option value="7-12">7-12</option>
+          <option value="13+">13+</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn fw-bold w-100" 
+              style="background-color: #f08930; color: #121212; border: none;">
+        SCHEDULE A CALL
+      </button>
+    </form>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</header>
+
+<script>
+  const quotePercent = document.getElementById('quotePercent');
+  const equipment = document.getElementById('equipment');
+  const trucks = document.getElementById('trucks');
+  const months = document.getElementById('months');
+
+  function updateQuotePercent() {
+    let basePercent = 5;
+
+    switch (equipment.value) {
+      case 'dry_van': basePercent += 0.5; break;
+      case 'flat_bed': basePercent += 1; break;
+      case 'reefer': basePercent += 1.5; break;
+      case 'step_deck': basePercent += 0.75; break;
+      default: break;
+    }
+
+    if (trucks.value === '1') basePercent += 0.5;
+    else if (trucks.value === '2') basePercent += 1;
+    else if (trucks.value === '3') basePercent += 1.5;
+
+    if (months.value === '0-6') basePercent += 0.5;
+    else if (months.value === '7-12') basePercent += 1;
+    else if (months.value === '13+') basePercent += 1.5;
+
+    if (basePercent > 10) basePercent = 10;
+
+    quotePercent.textContent = `${basePercent.toFixed(1)}%`;
+  }
+
+  // Attach event listeners to update the percentage on every change
+  equipment.addEventListener('change', updateQuotePercent);
+  trucks.addEventListener('change', updateQuotePercent);
+  months.addEventListener('change', updateQuotePercent);
+
+  // Optionally, initialize on page load
+  updateQuotePercent();
+</script>
+
 
   <!-- Services -->
   <section id="services">
@@ -953,6 +1111,7 @@
 
 </body>
 </html>
+
 
 
 
