@@ -394,11 +394,12 @@
         </select>
       </div>
 
-      <button onclick="window.location.href='carrier-on-boarding.html'" 
-        class="btn fw-bold w-100 nav-item" 
-        style="background-color: #f08930; color: #121212; border: none;">
+      <a href="carrier-on-boarding.html" 
+   class="btn fw-bold w-100 nav-item" 
+   style="background-color: #f08930; color: #121212; border: none;">
   SCHEDULE A CALL
-</button>
+</a>
+
 
     </form>
   </div>
@@ -428,11 +429,11 @@
 
     if (trucks.value === '1') basePercent += 3;
     else if (trucks.value === '2') basePercent += 2;
-    else if (trucks.value === '3') basePercent += 1.5;
+    else if (trucks.value === '3') basePercent += 0;
 
     if (months.value === '0-6') basePercent += 3;
     else if (months.value === '7-12') basePercent += 2;
-    else if (months.value === '13+') basePercent += 1.5;
+    else if (months.value === '13+') basePercent += 0;
 
     // ✅ Max capped at 8 instead of 10
     if (basePercent > 8) basePercent = 8;
@@ -1051,6 +1052,7 @@
 
 </body>
 </html>
+
 
 
 
