@@ -417,19 +417,19 @@
     let basePercent = 5;
 
     switch (equipment.value) {
-      case 'dry_van': basePercent += 0.5; break;
-      case 'flat_bed': basePercent += 1; break;
+      case 'dry_van': basePercent += 2; break;
+      case 'flat_bed': basePercent += 3; break;
       case 'reefer': basePercent += 1.5; break;
-      case 'step_deck': basePercent += 0.75; break;
+      case 'step_deck': basePercent += 1.5; break;
       default: break;
     }
 
-    if (trucks.value === '1') basePercent += 0.5;
-    else if (trucks.value === '2') basePercent += 1;
+    if (trucks.value === '1') basePercent += 3;
+    else if (trucks.value === '2') basePercent += 2;
     else if (trucks.value === '3') basePercent += 1.5;
 
-    if (months.value === '0-6') basePercent += 0.5;
-    else if (months.value === '7-12') basePercent += 1;
+    if (months.value === '0-6') basePercent += 3;
+    else if (months.value === '7-12') basePercent += 2;
     else if (months.value === '13+') basePercent += 1.5;
 
     if (basePercent > 10) basePercent = 10;
@@ -1047,6 +1047,7 @@
 
 </body>
 </html>
+
 
 
 
