@@ -394,7 +394,7 @@
         </select>
       </div>
 
-      <button type="submit" class="btn fw-bold w-100" 
+      <button href="carier-on-boarding" type="submit" class="btn fw-bold w-100" 
               style="background-color: #f08930; color: #121212; border: none;">
         SCHEDULE A CALL
       </button>
@@ -432,7 +432,8 @@
     else if (months.value === '7-12') basePercent += 2;
     else if (months.value === '13+') basePercent += 1.5;
 
-    if (basePercent > 10) basePercent = 10;
+    // ✅ Max capped at 8 instead of 10
+    if (basePercent > 8) basePercent = 8;
 
     quotePercent.textContent = `${basePercent.toFixed(1)}%`;
   }
@@ -442,9 +443,10 @@
   trucks.addEventListener('change', updateQuotePercent);
   months.addEventListener('change', updateQuotePercent);
 
-  // Optionally, initialize on page load
+  // Initialize on page load
   updateQuotePercent();
 </script>
+
 
 
   <!-- Services -->
@@ -1047,6 +1049,7 @@
 
 </body>
 </html>
+
 
 
 
