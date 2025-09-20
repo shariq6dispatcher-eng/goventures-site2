@@ -39,6 +39,9 @@
     .fw-bold{
       color: #f08930;
     }
+    .fw-bold2{
+      color: #00b4d8;
+    }
   </style>
 </head>
 <body>
@@ -81,7 +84,7 @@
       <div class="modal-body p-5">
 
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h5 class="fw-bold mb-0 text-info">Carrier Onboarding</h5>
+          <h5 class="fw-bold1 mb-0 text-info">Carrier Onboarding</h5>
           <span class="badge bg-secondary" id="stepIndicator">Step 1 of 4</span>
         </div>
         <hr class="mb-4">
@@ -90,7 +93,7 @@
 
           <!-- STEP 1 -->
           <div class="step active" id="step1">
-            <h3 class="fw-bold mb-3">Welcome to Go Ventures Dispatch!</h3>
+            <h3 class="fw-bold1 mb-3">Welcome to Go Ventures Dispatch!</h3>
             <p class="lead">We’re excited to have you onboard 🚛<br>Are you ready to get started?</p>
             <div class="text-end">
               <button type="button" class="btn btn-primary btn-lg nextBtn">Yes, Let’s Go</button>
@@ -99,7 +102,7 @@
 
           <!-- STEP 2 -->
           <div class="step" id="step2">
-            <h4 class="fw-bold">Company Information</h4>
+            <h4 class="fw-bold1">Company Information</h4>
             <div id="step2Error" class="alert alert-danger d-none"></div>
             <div class="row g-3 mt-2">
               <div class="col-md-6"><label class="form-label">Company Name</label><input type="text" id="companyName" name="companyName" class="form-control form-control-lg" required></div>
@@ -117,7 +120,7 @@
 
           <!-- STEP 3 -->
           <div class="step" id="step3">
-            <h4 class="fw-bold">Required Documents</h4>
+            <h4 class="fw-bold1">Required Documents</h4>
             <div id="step3Error" class="alert alert-danger d-none"></div>
             <p class="mt-2">Select the documents you’ll upload:</p>
             <div class="row g-3">
@@ -134,7 +137,7 @@
 
           <!-- STEP 4 -->
           <div class="step" id="step4">
-            <h4 class="fw-bold">Upload Documents</h4>
+            <h4 class="fw-bold1">Upload Documents</h4>
             <p class="text-muted">Attach the documents you selected (PDF, JPG, PNG, DOCX; max 10MB each):</p>
             <div id="uploadFields" class="mb-3"></div>
             <div id="step4Error" class="alert alert-danger d-none"></div>
@@ -160,11 +163,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-4">
-          <h5 class="fw-bold text-uppercase">Go Ventures</h5>
+          <h5 class="fw-bold2 text-uppercase">Go Ventures</h5>
           <p>Reliable Ground Freight Solutions across the USA. Driving your ventures forward with efficiency, safety, and speed.</p>
         </div>
         <div class="col-md-4 mb-4">
-          <h5 class="fw-bold text-uppercase">Contact Info</h5>
+          <h5 class="fw-bold2 text-uppercase">Contact Info</h5>
           <ul class="list-unstyled small">
             <li><i class="bi bi-geo-alt-fill text-primary me-2"></i>10510 W ALIANA TRACE DR APT 463 RICHMOND, TEXAS 77407</li>
             <li><i class="bi bi-telephone-fill text-primary me-2"></i>+1 (713) 635-9710</li>
@@ -172,7 +175,7 @@
           </ul>
         </div>
         <div class="col-md-4 mb-4">
-          <h5 class="fw-bold text-uppercase">Quick Links</h5>
+          <h5 class="fw-bold2 text-uppercase">Quick Links</h5>
           <ul class="list-unstyled small">
             <li><a href="Home.html">Home</a></li>
             <li><a href="index.html#about">About Us</a></li>
@@ -317,6 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
