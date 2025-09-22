@@ -93,14 +93,19 @@
   section { padding: 4rem 0; }
 
   /* Cards */
-  .card {
-    background-color: #1e1e1e;
-    border: none;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .card {
+    background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  transition: transform .28s ease, box-shadow .28s ease;
+  will-change: transform;
   }
-  .card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.6); }
+  .card:hover, .card:focus {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(2,8,23,0.6);
+}
   .card img { border-top-left-radius: 15px; border-top-right-radius: 15px; }
+
 
   /* Why Choose Us */
   .icon-card {
@@ -1052,6 +1057,7 @@
 
 </body>
 </html>
+
 
 
 
